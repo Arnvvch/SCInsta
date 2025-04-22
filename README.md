@@ -1,3 +1,5 @@
+https://armconverter.com/decryptedappstore/us/app/instagram/id389801252?bundleId=com.burbn.instagram
+
 # SCInsta
 A feature-rich tweak for Instagram on iOS!\
 `Version v0.6.0` | `Tested on Instagram v350.0.12`
