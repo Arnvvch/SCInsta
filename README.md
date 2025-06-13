@@ -2,15 +2,16 @@ https://armconverter.com/decryptedappstore/us/app/instagram/id389801252?bundleId
 
 # SCInsta
 A feature-rich tweak for Instagram on iOS!\
-`Version v0.6.0` | `Tested on Instagram v350.0.12`
+`Version v0.7.0` | `Tested on Instagram 384.0.0`
 
 ---
 
 > [!NOTE]
+> ⚙️ &nbsp;To modify SCInsta's settings, check out [this page](https://github.com/SoCuul/SCInsta/wiki/Modify-Settings) for help\
 > ❓ &nbsp;If you have any questions or need help with the tweak, visit the [Discussions](https://github.com/SoCuul/SCInsta/discussions) tab
 >
-> ✨ &nbsp;If you have a feature request, [click here](https://github.com/SoCuul/SCInsta/issues/new?labels=enhancement&title=feat:%20replace%20this%20text%20with%20your%20feature%20request)\
-> 🐛 &nbsp;If you have a bug report, [click here](https://github.com/SoCuul/SCInsta/issues/new?labels=bug&title=bug:%20replace%20this%20with%20a%20summary%20of%20the%20issue%20you're%20experiencing)
+> ✨ &nbsp;If you have a feature request, [click here](https://github.com/SoCuul/SCInsta/issues/new/choose)\
+> 🐛 &nbsp;If you have a bug report, [click here](https://github.com/SoCuul/SCInsta/issues/new/choose)
 > 
 
 ---
@@ -25,12 +26,15 @@ A feature-rich tweak for Instagram on iOS!\
 ### General
 - Hide Meta AI
 - Copy description
-- Hide reels tab
+- Use detailed color picker
 - Disable scrolling reels
 - Do not save recent searches
 - Hide explore posts grid
 - Hide trending searches
+- Hide friends map
 - No suggested chats (in dms)
+- No suggested users
+- Hide notes tray
 
 ### Feed
 - Hide ads
@@ -42,14 +46,20 @@ A feature-rich tweak for Instagram on iOS!\
 - No suggested threads posts
 
 ### Confirm actions
-- Confirm like: Posts
+- Confirm like: Posts (and stories)
 - Confirm like: Reels
 - Confirm follow
 - Confirm call
 - Confirm voice messages
+- Confirm shh mode (disappearing messages)
 - Confirm sticker interaction
 - Confirm posting comment
 - Confirm changing theme
+
+### Hide navigation tabs
+- Hide explore tab
+- Hide create tab
+- Hide reels tab
 
 ### Save media (partially broken)
 - Download images/videos
@@ -69,7 +79,7 @@ A feature-rich tweak for Instagram on iOS!\
 - Automatically clears unneeded cache folders, reducing the size of your Instagram installation
 
 ### Built-in Tweak Settings
-> Long press on the **large Instagram logo** at the top of your feed to bring up the SCInsta tweak settings
+[How to modify SCInsta settings](https://github.com/SoCuul/SCInsta/wiki/Modify-Settings)
 
 # Building from source
 ### Prerequisites
@@ -77,7 +87,7 @@ A feature-rich tweak for Instagram on iOS!\
 - [Homebrew](https://brew.sh/#install)
 - [CMake](https://formulae.brew.sh/formula/cmake#default) (`brew install cmake`)
 - [Theos](https://theos.dev/docs/installation)
-- [pyzule](https://github.com/asdfzxcvbn/pyzule?tab=readme-ov-file#installation) **\*only required for sideloading**
+- [cyan](https://github.com/asdfzxcvbn/pyzule-rw?tab=readme-ov-file#install-instructions) **\*only required for sideloading**
 
 ### Setup
 1. Install iOS 14.5 frameworks for theos
@@ -97,8 +107,8 @@ $ ./build.sh <sideload/rootless/rootful>
 
 |                                             |                                             |                                             |
 |:-------------------------------------------:|:-------------------------------------------:|:-------------------------------------------:|
-| <img src="https://i.imgur.com/hr3v0fk.png"> | <img src="https://i.imgur.com/gQZdtWp.png"> | <img src="https://i.imgur.com/iXIFLxG.png"> |
-| <img src="https://i.imgur.com/HMZ9n4D.png"> | <img src="https://i.imgur.com/JQcySt6.png"> |
+| <img src="https://i.imgur.com/4409xKW.png"> | <img src="https://i.imgur.com/gb7uVEY.png"> | <img src="https://i.imgur.com/qrj4EBA.png"> |
+| <img src="https://i.imgur.com/3hFfZJB.png"> | <img src="https://i.imgur.com/8BiwZQN.png"> |
 
 # Contributing
 Contributions to this tweak are greatly appreciated. Feel free to create a pull request if you would like to contribute.

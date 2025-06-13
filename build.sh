@@ -3,10 +3,11 @@
 set -e
 
 CMAKE_OSX_ARCHITECTURES="arm64e;arm64"
+CMAKE_OSX_SYSROOT="iphoneos"
 
 # Prerequisites
-if [ -z "$(ls -A modules/libflex/FLEX)" ]; then
-    echo -e '\033[1m\033[0;31mFLEX submodule not found.\nPlease run the following command to checkout submodules:\n\n\033[0m    git submodule update --init --recursive'
+if [ -z "$(ls -A modules/FLEXing)" ]; then
+    echo -e '\033[1m\033[0;31mFLEXing submodule not found.\nPlease run the following command to checkout submodules:\n\n\033[0m    git submodule update --init --recursive'
     exit 1
 fi
 
@@ -30,11 +31,11 @@ then
     # Check if building with dev mode
     if [ "$2" == "--dev" ];
     then
-        FLEXPATH='packages/libsciFLEX.dylib'
+        FLEXPATH='packages/FLEXing.dylib packages/libflex.dylib'
 
         make "DEV=1"
     else
-        FLEXPATH='.theos/obj/debug/libsciFLEX.dylib'
+        FLEXPATH='.theos/obj/debug/FLEXing.dylib .theos/obj/debug/libflex.dylib'
 
         make "SIDELOAD=1"
     fi
@@ -42,7 +43,7 @@ then
     # Create IPA File
     echo -e '\033[1m\033[32mCreating the IPA file...\033[0m'
     rm -f packages/SCInsta-sideloaded.ipa
-    pyzule -i "packages/${ipaFile}" -o packages/SCInsta-sideloaded.ipa -f .theos/obj/debug/SCInsta.dylib .theos/obj/debug/sideloadfix.dylib $FLEXPATH -c 0 -m 15.0 -du
+    cyan -i "packages/${ipaFile}" -o packages/SCInsta-sideloaded.ipa -f .theos/obj/debug/SCInsta.dylib .theos/obj/debug/sideloadfix.dylib $FLEXPATH -c 0 -m 15.0 -du
     
     echo -e "\033[1m\033[32mDone, we hope you enjoy SCInsta!\033[0m\n\nYou can find the ipa file at: $(pwd)/packages"
 

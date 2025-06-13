@@ -264,6 +264,7 @@
 @end
 
 @interface IGInstagramAppDelegate : NSObject <UIApplicationDelegate>
+- (void)authPrompt; // new
 @end
 
 @interface IGDirectInboxSearchAIAgentsPillsContainerCell : UIView
@@ -277,6 +278,7 @@
 
 @interface IGLabelItemViewModel : NSObject
 - (id)labelTitle;
+- (id)uniqueIdentifier;
 @end
 
 @interface IGDirectInboxSuggestedThreadCellViewModel : NSObject
@@ -335,6 +337,46 @@
 @end
 
 @interface IGUnifiedVideoCollectionView : UIScrollView
+@end
+
+@interface IGBadgedNavigationButton : UIView
+- (void)addLongPressGestureRecognizer; // new
+@end
+
+@interface IGSearchBar : UIView
+- (NSObject *)sanitizePlaceholderForConfig:(NSObject *)config; // new
+@end
+
+@interface IGSearchBarConfig : NSObject
+@end
+
+@interface IGAnimatablePlaceholderTextFieldContainer : UIView
+@end
+
+@interface IGDirectInboxConfig : NSObject
+@end
+
+@interface IGDirectMediaPickerConfig : NSObject
+@end
+
+@interface IGDirectMediaPickerGalleryConfig : NSObject
+@end
+
+@interface IGStoryEyedropperToggleButton : UIControl
+@property (nonatomic, strong, readwrite) UIColor *color;
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+
+- (UIViewController *)parentViewController; // new
+
+- (void)addLongPressGestureRecognizer; // new
+@end
+
+@interface IGStoryTextEntryViewController : UIViewController
+- (void)textViewControllerDidUpdateWithColor:(id)color;
+@end
+
+@interface IGStoryColorPaletteView : UIView
 @end
 
 

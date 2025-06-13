@@ -14,6 +14,6 @@
 
     "search.exclude": {
         "modules/": true,
-        "dump/": true
+        "dumps/": true
     }
 }
