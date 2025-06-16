@@ -1,12 +1,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <QuickLook/QuickLook.h>
+
+#import "QuickLook.h"
 
 @interface SCIManager : NSObject
 
-+ (BOOL)getPref:(NSString *)key;
-
-+ (void)showSaveVC:(id)item;
++ (BOOL)getBoolPref:(NSString *)key;
++ (double)getDoublePref:(NSString *)key;
 + (void)cleanCache;
-+ (NSString *)getDownloadingPersent:(float)per;
+
+// View Controllers
++ (void)showQuickLookVC:(NSArray<id> *)items;
++ (void)showShareVC:(id)item;
 
 @end

@@ -32,6 +32,67 @@
     return hud;
 }
 
+// Media
++ (NSURL *)getPhotoUrl:(IGPhoto *)photo {
+    if (!photo) return nil;
+
+    // Get highest quality photo link
+    NSURL *photoUrl = [photo imageURLForWidth:100000.00];
+
+    return photoUrl;
+}
++ (NSURL *)getPhotoUrlForMedia:(IGMedia *)media {
+    if (!media) return nil;
+
+    IGPhoto *photo = media.photo;
+
+    return [SCIUtils getPhotoUrl:photo];
+}
+
++ (NSURL *)getVideoUrl:(IGVideo *)video {
+    if (!video) return nil;
+
+    // Sort videos by quality
+    NSArray<NSDictionary *> *sortedVideoUrls = [video sortedVideoURLsBySize];
+    if ([sortedVideoUrls count] < 1 || sortedVideoUrls[0] == nil) return nil;
+
+    // First element in array is highest quality
+    NSURL *videoUrl = [NSURL URLWithString:[sortedVideoUrls[0] objectForKey:@"url"]];
+
+    return videoUrl;
+}
++ (NSURL *)getVideoUrlForMedia:(IGMedia *)media {
+    if (!media) return nil;
+
+    IGVideo *video = media.video;
+    if (!video) return nil;
+
+    return [SCIUtils getVideoUrl:video];
+}
+
+// View Controllers
++ (UIViewController *)viewControllerForView:(UIView *)view {
+    NSString *viewDelegate = @"viewDelegate";
+    if ([view respondsToSelector:NSSelectorFromString(viewDelegate)]) {
+        return [view valueForKey:viewDelegate];
+    }
+
+    return nil;
+}
+
++ (UIViewController *)viewControllerForAncestralView:(UIView *)view {
+    NSString *_viewControllerForAncestor = @"_viewControllerForAncestor";
+    if ([view respondsToSelector:NSSelectorFromString(_viewControllerForAncestor)]) {
+        return [view valueForKey:_viewControllerForAncestor];
+    }
+
+    return nil;
+}
+
++ (UIViewController *)nearestViewControllerForView:(UIView *)view {
+    return [self viewControllerForView:view] ?: [self viewControllerForAncestralView:view];
+}
+
 // Functions
 + (NSString *)IGVersionString {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -40,6 +101,17 @@
     return [[[UIApplication sharedApplication] keyWindow] safeAreaInsets].bottom > 0;
 };
 
++ (BOOL)existingLongPressGestureRecognizerForView:(UIView *)view {
+    NSArray *allRecognizers = view.gestureRecognizers;
+
+    for (UIGestureRecognizer *recognizer in allRecognizers) {
+        if ([[recognizer class] isSubclassOfClass:[UILongPressGestureRecognizer class]]) {
+            return YES;
+        }
+    }
+
+    return NO;
+}
 + (BOOL)showConfirmation:(void(^)(void))okHandler {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -59,5 +131,25 @@
         alert.popoverPresentationController.permittedArrowDirections = 0;
     }
 };
+
+// Math
++ (NSUInteger)decimalPlacesInDouble:(double)value {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:15]; // Allow enough digits for double precision
+    [formatter setMinimumFractionDigits:0];
+    [formatter setDecimalSeparator:@"."]; // Force dot for internal logic, then respect locale for final display if needed
+
+    NSString *stringValue = [formatter stringFromNumber:@(value)];
+
+    // Find decimal separator
+    NSRange decimalRange = [stringValue rangeOfString:formatter.decimalSeparator];
+
+    if (decimalRange.location == NSNotFound) {
+        return 0;
+    } else {
+        return stringValue.length - (decimalRange.location + decimalRange.length);
+    }
+}
 
 @end

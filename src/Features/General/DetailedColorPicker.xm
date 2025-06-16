@@ -1,25 +1,16 @@
 #import "../../InstagramHeaders.h"
+#import "../../Manager.h"
+#import "../../Utils.h"
 
 %hook IGStoryEyedropperToggleButton
 - (void)didMoveToWindow {
     %orig;
 
-    if ([SCIManager getPref:@"detailed_color_picker"]) {
+    if ([SCIManager getBoolPref:@"detailed_color_picker"]) {
         [self addLongPressGestureRecognizer];
     }
 
     return;
-}
-
-%new - (UIViewController *)parentViewController {
-    UIResponder *responder = [self nextResponder];
-    while (responder != nil) {
-        if ([responder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)responder;
-        }
-        responder = [responder nextResponder];
-    }
-    return nil;
 }
 
 %new - (void)addLongPressGestureRecognizer {
@@ -38,7 +29,7 @@
     colorPickerController.modalPresentationStyle = UIModalPresentationPopover;
     colorPickerController.selectedColor = self.color;
     
-    UIViewController *presentingVC = [self parentViewController];
+    UIViewController *presentingVC = [SCIUtils nearestViewControllerForView:self];
     
     if (presentingVC != nil) {
         [presentingVC presentViewController:colorPickerController animated:YES completion:nil];
@@ -57,7 +48,7 @@
     [self setSelected:YES animated:YES];
 
     // Trigger change for text color
-    IGStoryTextEntryViewController *presentingVC = [self parentViewController];
+    IGStoryTextEntryViewController *presentingVC = [SCIUtils nearestViewControllerForView:self];
     [presentingVC textViewControllerDidUpdateWithColor:color];
 };
 %end
