@@ -99,7 +99,7 @@ jobs:
                 cd main
                 ls -la
 
-                ./build.sh dev
+                ./build.sh sideload
 
                 ls -la packages
                 
