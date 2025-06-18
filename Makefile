@@ -23,7 +23,7 @@ ifdef DEV
 else
 
 	ifdef SIDELOAD
-		$(TWEAK_NAME)_SUBPROJECTS += modules/sideloadfix modules/flexing
+		$(TWEAK_NAME)_SUBPROJECTS += modules/sideloadfix
 	else
 		$(TWEAK_NAME)_SUBPROJECTS += modules/flexing
 	endif
