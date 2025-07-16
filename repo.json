@@ -1,0 +1,60 @@
+{
+    "name": "Instagram Source",
+    "subtitle": "Get Instagram IPA here.",
+    "description": "Welcome! Download the latest Instagram IPA for AltStore.",
+    "iconURL": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
+    "headerURL": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308",
+    "website": "https://instagram.com",
+    "tintColor": "#E1306C",
+    "featuredApps": [
+        "com.burbn.instagram"
+    ],
+    "apps": [
+        {
+            "name": "Instagram",
+            "bundleIdentifier": "com.burbn.instagram",
+            "developerName": "Instagram, Inc.",
+            "subtitle": "Photo & Video Sharing",
+            "localizedDescription": "Share your moments and connect with friends on Instagram. Download the latest IPA for AltStore.",
+            "iconURL": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
+            "tintColor": "#E1306C",
+            "screenshots": [
+                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/0a/4b/7e/0a4b7e4e-7e7e-7e7e-7e7e-7e7e7e7e7e7e/0a4b7e4e-7e7e-7e7e-7e7e-7e7e7e7e7e7e_1.jpg",
+                "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/1b/2c/3d/1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e/1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e_2.jpg"
+            ],
+            "versions": [
+                {
+                    "version": "388.0",
+                    "date": "2025-07-16",
+                    "size": 150000000,
+                    "downloadURL": "https://github.com/Arnvvch/SCInsta/releases/download/v0.7.1/v0.7.1-388.0_no-extensions.ipa",
+                    "localizedDescription": "Latest Instagram release. Bug fixes and performance improvements.",
+                    "minOSVersion": "14.0"
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [
+                    "com.apple.security.application-groups",
+                    "com.apple.developer.pushkit.unrestricted-voip"
+                ],
+                "privacy": {
+                    "NSPhotoLibraryUsageDescription": "Instagram needs access to your photo library to let you share photos.",
+                    "NSCameraUsageDescription": "Instagram needs access to your camera to let you take photos and videos.",
+                    "NSMicrophoneUsageDescription": "Instagram needs access to your microphone for video recording."
+                }
+            }
+        }
+    ],
+    "news": [
+        {
+            "title": "Instagram IPA Updated",
+            "identifier": "ig_update",
+            "caption": "The latest Instagram IPA is now available for AltStore.",
+            "date": "2024-06-01",
+            "tintColor": "#E1306C",
+            "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
+            "notify": true,
+            "url": "N/A"
+        }
+    ]
+}
