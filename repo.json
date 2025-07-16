@@ -24,9 +24,9 @@
             ],
             "versions": [
                 {
-                    "version": "388.0",
+                    "version": "388.0.0",
                     "date": "2025-07-16",
-                    "size": 150000000,
+                    "size": 171000000,
                     "downloadURL": "https://github.com/Arnvvch/SCInsta/releases/download/v0.7.1/v0.7.1-388.0_no-extensions.ipa",
                     "localizedDescription": "Latest Instagram release. Bug fixes and performance improvements.",
                     "minOSVersion": "14.0"
