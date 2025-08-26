@@ -28,9 +28,6 @@ then
     if [ "$2" == "--dev" ];
     then
 
-
-        
-
         make "DEV=1"
     else
         
